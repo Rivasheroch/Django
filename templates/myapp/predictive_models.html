@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predictive Models</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .btn-custom {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predictive Models</h1>
+
+        <div class="text-right mb-3">
+            <a href="{% url 'dashboard' %}" class="btn btn-primary btn-custom">Back to Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-custom">Logout</a>
+        </div>
+
+        <div class="list-group">
+            <a href="{% url 'education_energy_prediction' %}" class="list-group-item list-group-item-action">Education Energy Prediction</a>
+            <a href="{% url 'food_services_energy_prediction' %}" class="list-group-item list-group-item-action">Food Services Energy Prediction</a>
+            <a href="{% url 'healthcare_energy_prediction' %}" class="list-group-item list-group-item-action">Healthcare Energy Prediction</a>
+            <a href="{% url 'lodging_energy_prediction' %}" class="list-group-item list-group-item-action">Lodging Energy Prediction</a>
+            <a href="{% url 'mercantile_energy_prediction' %}" class="list-group-item list-group-item-action">Mercantile Energy Prediction</a>
+            <a href="{% url 'mobile_home_energy_prediction' %}" class="list-group-item list-group-item-action">Mobile Home Energy Prediction</a>
+            <a href="{% url 'multifamily_2_4_energy_prediction' %}" class="list-group-item list-group-item-action">Multifamily 2 to 4 Units Energy Prediction</a>
+            <a href="{% url 'multifamily_5plus_energy_prediction' %}" class="list-group-item list-group-item-action">Multifamily 5+ Units Energy Prediction</a>
+            <a href="{% url 'office_energy_prediction' %}" class="list-group-item list-group-item-action">Office Energy Prediction</a>
+            <a href="{% url 'single_family_attached_energy_prediction' %}" class="list-group-item list-group-item-action">Single-Family Attached Energy Prediction</a>
+            <a href="{% url 'single_family_detached_energy_prediction' %}" class="list-group-item list-group-item-action">Single-Family Detached Energy Prediction</a>
+            <a href="{% url 'warehouse_energy_prediction' %}" class="list-group-item list-group-item-action">Warehouse and Storage Energy Prediction</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

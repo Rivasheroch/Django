@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .btn-dashboard {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .alert {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Dashboard</h1>
+
+        <div class="text-right mb-3">
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+
+        <div class="list-group">
+            <a href="{% url 'descriptive_statistics' %}" class="list-group-item list-group-item-action btn-dashboard">Descriptive Statistics</a>
+            <a href="{% url 'correlation_heatmap' %}" class="list-group-item list-group-item-action btn-dashboard">Correlation Heatmap</a>
+            <a href="{% url 'predictive_model_metrics' %}" class="list-group-item list-group-item-action btn-dashboard">Predictive Model Metrics</a>
+            <a href="{% url 'predictive_models' %}" class="list-group-item list-group-item-action btn-dashboard">Predictive Models</a>
+        </div>
+
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Home Energy Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mobile Home Energy Prediction</h1>
+
+        <div class="text-right mb-3">
+            <a href="{% url 'predictive_models' %}" class="btn btn-secondary">Back to Predictive Models</a>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+
+        <div class="form-container">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="temp_TX">Temperature:</label>
+                    <input type="text" class="form-control" name="temp_TX" required>
+                </div>
+                <div class="form-group">
+                    <label for="humidity_TX">Humidity:</label>
+                    <input type="text" class="form-control" name="humidity_TX" required>
+                </div>
+                <div class="form-group">
+                    <label for="month">Month:</label>
+                    <input type="text" class="form-control" name="month" required>
+                </div>
+                <div class="form-group">
+                    <label for="day">Day:</label>
+                    <input type="text" class="form-control" name="day" required>
+                </div>
+                <div class="form-group">
+                    <label for="hour">Hour:</label>
+                    <input type="text" class="form-control" name="hour" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-custom">Predict</button>
+            </form>
+        </div>
+
+        {% if prediction %}
+            <h2 class="text-center mt-4">Prediction in kWh: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

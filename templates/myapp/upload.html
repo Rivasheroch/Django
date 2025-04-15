@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+</head>
+<body>
+    <h2>Upload a File</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+        <a href="{% url 'dashboard' %}">Back to Dashboard</a><br>
+        <a href="{% url 'logout' %}">Logout</a>
+    </form>
+</body>
+</html>

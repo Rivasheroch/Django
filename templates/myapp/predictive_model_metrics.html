@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predictive Model Metrics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            margin-right: 10px;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Predictive Model Metrics</h1>
+
+        <div class="text-right mb-3">
+            <a href="{% url 'dashboard' %}" class="btn btn-primary btn-custom">Back to Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-custom">Logout</a>
+        </div>
+
+        {% if metrics %}
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Target Variable</th>
+                            <th>Mean Squared Error (MSE)</th>
+                            <th>R^2 Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for target, metrics in metrics.items %}
+                        <tr>
+                            <td>{{ target }}</td>
+                            <td>{{ metrics.MSE }}</td>
+                            <td>{{ metrics.R_squared }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                No metrics to display.
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

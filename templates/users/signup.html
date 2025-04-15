@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name ='viewport' content = 'width=device-width, initial-scale=1.0'>
+    <title>Signup</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+        }
+        form{
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #advanced-fields {display: none;}
+        p {
+            text-align: center; /* Center the text */
+            color: #555; /* Dark gray text color */
+            margin-top: 20px; /* Space above the paragraph */
+            font-size: 14px; /* Font size */
+            font-family: Arial, sans-serif; /* Font family */
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <h2>Sign up</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div id='advanced_fields'>
+            <label for= 'advanced-info'>Advanced User Information:</label>
+            <input type="text" id="advanced-info" name="advances_info" placeholder="Enter advanced user details">
+
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Please check your email to confirm your registration.</p> <!-- Added confirmation message -->
+
+    <script>
+        document.addEventListener('DOMContentLoader', function() {
+            const roleField = document.querySelector('select[name="user_type"]');
+            const advancedFields = document.getElementById("advanced-fields");
+
+            roleField.addEventListener("change", function () {
+                advancedFields.style.display = this.value ==="advanced_user" ? "block":"none";
+            });
+        });
+    </script>
+
+</body>
+</html>

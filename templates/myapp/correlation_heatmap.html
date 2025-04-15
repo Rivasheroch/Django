@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Correlation Heatmap</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            margin-right: 10px;
+        }
+        .table-responsive {
+            margin-top: 20px;
+        }
+    </style>
+    {% load static %}
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Correlation Heatmap</h1>
+
+        <div class="text-right mb-3">
+            <a href="{% url 'dashboard' %}" class="btn btn-primary btn-custom">Back to Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-danger btn-custom">Logout</a>
+        </div>
+
+        <div class="text-center">
+             {% load static %}
+            <img src="{% static heatmap_file %}" alt="Correlation Heatmap" class="img-fluid">
+        </div>
+
+
+        <div class= "table-responsive mt-3">
+            <!-- You can add any additional content here if necessary -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
